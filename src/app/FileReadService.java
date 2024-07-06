@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class FileReadService {
     public String readFile(String fileName) {
-        String c = null;
+        String c;
         FileInputStream fins;
         String path = FilePath.getBasePath() + fileName + ".txt";
         try {
@@ -16,6 +16,7 @@ public class FileReadService {
                 stringBuilder.append((char) symb);
             }
             c = stringBuilder.toString();
+            fins.close();
             return c;
         } catch (IOException ex) {
             return ex.getMessage();
