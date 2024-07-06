@@ -10,6 +10,7 @@ public class Main {
         int choiсе = 0;
         String fileName = null;
         String myText = null;
+        String message = "Make your choice \uD83E\uDEF5 1, 2, 3 or Exit";
         System.out.println("Please make your choice:");
         System.out.println("1 - Create and save a file \uD83D\uDCDD");
         System.out.println("2 - Read this file \uD83D\uDCDC");
@@ -34,6 +35,7 @@ public class Main {
                             myText = scan.nextLine();
                             String result = fws.writeFile(fileName, myText);
                             getOutput("RESULT: " + result);
+                            getOutput(message);
                             break;
                         case 2:
                             System.out.println(choiсе + " - Selected to read this file \uD83D\uDE00 \uD83D\uDCDC");
@@ -42,6 +44,7 @@ public class Main {
                             fileName = scan.nextLine();
                             String content = frs.readFile(fileName);
                             getOutput("FILE CONTENT: " + content);
+                            getOutput(message);
                             break;
                         case 3:
                             System.out.println(choiсе + " - Selected to delete this file ❌");
@@ -50,17 +53,18 @@ public class Main {
                             fileName = scan.nextLine();
                             String resume = fds.deleteFile(fileName);
                             getOutput("RESUME: " + resume);
+                            getOutput(message);
                     }
                 } else {
                     System.out.println("A number other than 1 or 2 or 3 is entered. \uD83D\uDC7D");
-                    System.out.println("Make your choice \uD83E\uDEF5 1 or 2 or 3");
+                    getOutput(message);
                 }
             } catch (NumberFormatException e) {
                 final Runnable runnable =
                         (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
                 if (runnable != null) runnable.run();
                 System.out.println("Error! Not a number entered! \uD83D\uDC7D");
-                System.out.println("Make your choice \uD83E\uDEF5 1 or 2 or 3");
+                getOutput(message);
             }
         }
     }
