@@ -42,8 +42,9 @@ public class Main {
                             FileReadService frs = new FileReadService();
                             System.out.println("Input file Name:");
                             fileName = scan.nextLine();
-                            String content = frs.readFile(fileName);
-                            getOutput("FILE CONTENT: " + content);
+                            getOutput("FILE CONTENT: ");
+                            frs.readFile(fileName);
+                            System.out.println();
                             getOutput(message);
                             break;
                         case 3:
