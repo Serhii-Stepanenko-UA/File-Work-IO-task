@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int choiсе = 0;
-        String fileName = null;
-        String myText = null;
+        int choice;
+        String fileName;
+        String myText;
         String message = "Make your choice \uD83E\uDEF5 1, 2, 3 or Exit";
         System.out.println("Please make your choice:");
         System.out.println("1 - Create and save a file \uD83D\uDCDD");
@@ -19,15 +19,15 @@ public class Main {
         while (true) {
             String input = scan.nextLine();
             if (input.equalsIgnoreCase("exit")) {
-                System.out.println(" ☑\uFE0F ");
+                System.out.println(" ☑️ ");
                 break;
             }
             try {
-                choiсе = Integer.parseInt(input);
-                if (choiсе == 1 ^ choiсе == 2 ^ choiсе == 3) {
-                    switch (choiсе) {
+                choice = Integer.parseInt(input);
+                if (choice == 1 ^ choice == 2 ^ choice == 3) {
+                    switch (choice) {
                         case 1:
-                            System.out.println(choiсе + " - Selected to create and write a file \uD83D\uDE00 \uD83D\uDCDD");
+                            System.out.println(choice + " - Selected to create and write a file \uD83D\uDE00 \uD83D\uDCDD");
                             FileWriteService fws = new FileWriteService();
                             System.out.println("Input file Name:");
                             fileName = scan.nextLine();
@@ -38,7 +38,7 @@ public class Main {
                             getOutput(message);
                             break;
                         case 2:
-                            System.out.println(choiсе + " - Selected to read this file \uD83D\uDE00 \uD83D\uDCDC");
+                            System.out.println(choice + " - Selected to read this file \uD83D\uDE00 \uD83D\uDCDC");
                             FileReadService frs = new FileReadService();
                             System.out.println("Input file Name:");
                             fileName = scan.nextLine();
@@ -47,7 +47,7 @@ public class Main {
                             getOutput(message);
                             break;
                         case 3:
-                            System.out.println(choiсе + " - Selected to delete this file ❌");
+                            System.out.println(choice + " - Selected to delete this file ❌");
                             FileDeleteService fds = new FileDeleteService();
                             System.out.println("Input file Name to delete:");
                             fileName = scan.nextLine();
