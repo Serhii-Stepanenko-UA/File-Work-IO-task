@@ -5,7 +5,7 @@ import java.io.File;
 
 public class FileDeleteService {
     public String deleteFile(String fileName) {
-        String r = null;
+        String r;
         try {
             //fileName = "fileName" + ".txt";
             String path = FilePath.getBasePath() + fileName + ".txt";
