@@ -1,13 +1,15 @@
-package app;
+package app._01.service;
+
+import app._01.utils.Constants;
 
 import java.io.File;
-//import java.io.IOException;
 
 public class FileDeleteService {
+
     public String deleteFile(String fileName) {
         String r;
         try {
-            String path = FilePath.getBasePath() + fileName + ".txt";
+            String path = Constants.BASE_PATH_REL + fileName + ".txt";
             File file = new File(path);
             if (file.delete()) {
                 r = (file.getName() + " - deleted!");
@@ -15,8 +17,8 @@ public class FileDeleteService {
                 r = ("File does not exist or not deleted!");
             }
             return r;
-        } catch (Exception e) {
-            return e.getMessage();
+        } catch (Exception ex) {
+            return ex.getMessage();
         }
     }
 }
